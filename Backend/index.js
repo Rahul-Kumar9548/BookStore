@@ -16,7 +16,10 @@ const PORT = process.env.PORT || 4000
 
 dotenv.config();
 
-app.use(cors());
+app.use(cors({
+     origin: ["http://localhost:4000"],
+     credentials:true
+}));
 
 app.use(bodyParser.json({ limit: "4kb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "4kb" }));
@@ -29,7 +32,9 @@ app.use(cookieParser());
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 
-
+// app.get("/",(req,res)=>{
+//     res.send("API Working");
+// })
 // Deployment code:
 
 // if(process.env.NODE_ENV === "Production"){
