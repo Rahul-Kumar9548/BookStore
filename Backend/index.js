@@ -16,10 +16,7 @@ const PORT = process.env.PORT || 4000
 
 dotenv.config();
 
-app.use(cors({
-     origin: ["http://localhost:4000"],
-     credentials:true
-}));
+app.use(cors());
 
 app.use(bodyParser.json({ limit: "4kb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "4kb" }));
